@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nike Shop Bangladesh</title>
+<style>
+:root{--bg:#0f0f10;--card:#1a1a1d;--ink:#f6f6f6;--muted:#b7b7b7;--accent:#f04424}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(circle at 15% 0,#3b1a16 0,#0f0f10 45%);color:var(--ink)}
+.wrap{max-width:1080px;margin:auto;padding:20px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.brand{font-weight:800;letter-spacing:.8px}
+.btn{border:1px solid #ffffff33;background:linear-gradient(120deg,#1f1f20,#f04424);color:#fff;padding:10px 14px;border-radius:999px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent}
+.hero{padding:36px 0 24px}
+h1{font-size:clamp(32px,5vw,60px);line-height:.95;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--card);border:1px solid #ffffff1f;border-radius:16px;padding:14px}
+.price{color:#ff7f67;font-weight:700}
+small{color:var(--muted)}
+hr{border-color:#ffffff1a;margin:20px 0}
+label{display:grid;gap:6px;margin-bottom:10px}input,select,textarea{border:1px solid #ffffff33;background:#121214;color:#fff;border-radius:10px;padding:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.notice{color:#8dffd0}
+@media(max-width:800px){.grid,.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <div class="brand">NIKE BD</div>
+    <div>
+      <button id="lang" class="btn ghost" type="button">বাংলা</button>
+      <a class="btn" href="#checkout" id="buyBtn">Checkout</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <small id="eyebrow">Nike Bangladesh Storefront</small>
+    <h1 id="title">Move Fast. Train Hard. Wear Nike.</h1>
+    <p id="lead">Shop sneakers and sportswear in Bangladesh with BDT pricing, bKash/Nagad/COD payment, and nationwide delivery.</p>
+    <p class="notice" id="delivery">Dhaka: 24-48h | Outside Dhaka: 2-4 days</p>
+  </section>
+
+  <section class="grid" id="products">
+    <article class="card"><h3>Nike Air Zoom Pegasus 41</h3><p class="price">BDT 16,500</p></article>
+    <article class="card"><h3>Nike Air Force 1 Low</h3><p class="price">BDT 13,200</p></article>
+    <article class="card"><h3>Nike Mercurial Vapor 16 Club</h3><p class="price">BDT 11,800</p></article>
+    <article class="card"><h3>Nike Dri-FIT Training Set</h3><p class="price">BDT 5,600</p></article>
+  </section>
+
+  <hr />
+
+  <section id="checkout" class="card">
+    <h2 id="checkoutTitle">Quick Checkout</h2>
+    <form id="f">
+      <div class="row">
+        <label><span id="nameL">Full Name</span><input required id="name" /></label>
+        <label><span id="phoneL">Phone</span><input required id="phone" placeholder="01XXXXXXXXX" /></label>
+      </div>
+      <div class="row">
+        <label><span id="productL">Product</span><select id="product"><option value="Nike Air Zoom Pegasus 41">Nike Air Zoom Pegasus 41</option><option value="Nike Air Force 1 Low">Nike Air Force 1 Low</option><option value="Nike Mercurial Vapor 16 Club">Nike Mercurial Vapor 16 Club</option><option value="Nike Dri-FIT Training Set">Nike Dri-FIT Training Set</option></select></label>
+        <label><span id="payL">Payment</span><select id="pay"><option>bKash</option><option>Nagad</option><option>Card</option><option>Cash on Delivery</option></select></label>
+      </div>
+      <label><span id="addrL">Address</span><textarea id="addr" required rows="3"></textarea></label>
+      <button class="btn" type="submit" id="waBtn">Confirm on WhatsApp</button>
+      <p><small id="foot">Replace WhatsApp number with your real business number before launch.</small></p>
+    </form>
+  </section>
+</div>
+<script>
+const i18n={en:{lang:"বাংলা",eyebrow:"Nike Bangladesh Storefront",title:"Move Fast. Train Hard. Wear Nike.",lead:"Shop sneakers and sportswear in Bangladesh with BDT pricing, bKash/Nagad/COD payment, and nationwide delivery.",delivery:"Dhaka: 24-48h | Outside Dhaka: 2-4 days",checkout:"Quick Checkout",name:"Full Name",phone:"Phone",product:"Product",pay:"Payment",addr:"Address",wa:"Confirm on WhatsApp",buy:"Checkout",foot:"Replace WhatsApp number with your real business number before launch."},bn:{lang:"English",eyebrow:"বাংলাদেশের নাইকি স্টোরফ্রন্ট",title:"দ্রুত চলুন, ট্রেনিং করুন, নাইকি পরুন।",lead:"BDT দামে নাইকি স্নিকার্স ও স্পোর্টসওয়্যার কিনুন। পেমেন্ট: bKash, Nagad, Card, COD।",delivery:"ঢাকা: ২৪-৪৮ ঘণ্টা | ঢাকার বাইরে: ২-৪ দিন",checkout:"দ্রুত চেকআউট",name:"পূর্ণ নাম",phone:"ফোন",product:"প্রোডাক্ট",pay:"পেমেন্ট",addr:"ঠিকানা",wa:"হোয়াটসঅ্যাপে কনফার্ম",buy:"চেকআউট",foot:"লাইভ করার আগে হোয়াটসঅ্যাপ নম্বর আপডেট করুন।"}};
+let lang="en";
+function apply(){const t=i18n[lang];document.getElementById("lang").textContent=t.lang;document.getElementById("eyebrow").textContent=t.eyebrow;document.getElementById("title").textContent=t.title;document.getElementById("lead").textContent=t.lead;document.getElementById("delivery").textContent=t.delivery;document.getElementById("checkoutTitle").textContent=t.checkout;document.getElementById("nameL").textContent=t.name;document.getElementById("phoneL").textContent=t.phone;document.getElementById("productL").textContent=t.product;document.getElementById("payL").textContent=t.pay;document.getElementById("addrL").textContent=t.addr;document.getElementById("waBtn").textContent=t.wa;document.getElementById("buyBtn").textContent=t.buy;document.getElementById("foot").textContent=t.foot;document.documentElement.lang=lang}
+document.getElementById("lang").onclick=()=>{lang=lang==="en"?"bn":"en";apply()};
+apply();
+const wa="8801700000000";
+document.getElementById("f").addEventListener("submit",e=>{e.preventDefault();const p=v=>document.getElementById(v).value.trim();const msg=["Nike BD Order","Name: "+p("name"),"Phone: "+p("phone"),"Product: "+p("product"),"Payment: "+p("pay"),"Address: "+p("addr")].join("\n");window.open("https://wa.me/"+wa+"?text="+encodeURIComponent(msg),"_blank")});
+</script>
+</body>
+</html>
