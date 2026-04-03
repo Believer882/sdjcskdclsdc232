@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nike Shop Bangladesh Checkout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="checkout">
+    <h1 data-i18n="checkout_title">Place Your Order</h1>
+    <form id="order-form">
+      <input id="name" placeholder="Name" required />
+      <input id="phone" placeholder="01XXXXXXXXX" required />
+      <select id="product">
+        <option>Nike Air Zoom Pegasus 41</option>
+        <option>Nike Air Force 1 Low</option>
+        <option>Nike Mercurial Vapor 16 Club</option>
+        <option>Nike Dri-FIT Training Set</option>
+      </select>
+      <textarea id="address" placeholder="Address" required></textarea>
+      <button type="submit" data-i18n="confirm_whatsapp">Confirm on WhatsApp</button>
+    </form>
+  </main>
+
+  <script src="lang.js"></script>
+  <script src="order.js"></script>
+</body>
+</html>
